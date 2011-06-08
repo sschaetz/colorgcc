@@ -130,20 +130,20 @@ sub loadPreferences
 
       if ($option =~ m/cc|c\+\+|gcc|g\+\+/)
       {
-	 $compilerPaths{$option} = $value;
+   $compilerPaths{$option} = $value;
       }
       elsif ($option eq "nocolor")
       {
-	 # The nocolor option lists terminal types, separated by
-	 # spaces, not to do color on.
-	 foreach $termtype (split(/\s+/, $value))
-	 {
-	    $nocolor{$termtype} = "true";
-	 }
+   # The nocolor option lists terminal types, separated by
+   # spaces, not to do color on.
+   foreach $termtype (split(/\s+/, $value))
+   {
+      $nocolor{$termtype} = "true";
+   }
       }
       else
       {
-	 $colors{$option} = color($value);
+   $colors{$option} = color($value);
       }
    }
    close(PREFS);
@@ -218,17 +218,17 @@ while(<GCCOUT>)
 
       if ($field3 =~ m/\s+warning:.*/)
       {
-	 # Warning
-	 print($colors{"warningFileNameColor"}, "$field1:", color("reset"));
-	 print($colors{"warningNumberColor"}, "$field2:", color("reset"));
-	 srcscan($field3, $colors{"warningMessageColor"});
+   # Warning
+   print($colors{"warningFileNameColor"}, "$field1:", color("reset"));
+   print($colors{"warningNumberColor"}, "$field2:", color("reset"));
+   srcscan($field3, $colors{"warningMessageColor"});
       }
       else 
       {
-	 # Error
-	 print($colors{"errorFileNameColor"}, "$field1:", color("reset"));
-	 print($colors{"errorNumberColor"}, "$field2:", color("reset"));
-	 srcscan($field3, $colors{"errorMessageColor"});
+   # Error
+   print($colors{"errorFileNameColor"}, "$field1:", color("reset"));
+   print($colors{"errorNumberColor"}, "$field2:", color("reset"));
+   srcscan($field3, $colors{"errorMessageColor"});
       }
       print("\n");
    }
@@ -247,6 +247,7 @@ while(<GCCOUT>)
 # Get the return code of the compiler and exit with that.
 waitpid($compiler_pid, 0);
 exit ($? >> 8);
+
 
 
 

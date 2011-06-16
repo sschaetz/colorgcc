@@ -519,7 +519,6 @@ $cid = "(?:$idp(?: ?const ?\\*? ?)?|$id<$idp(?: ?const ?\\*? ?)?(?:, ?$idp(?: ?c
 												# a cid or template type with 1+ cid's as parameters
 $t = "(?:$cid|$id<$cid(?:, ?$cid)*>$p|$id<$id<$cid>$p(?:, ?$id<$cid>$p)* ?>$p)";
 
-println "$STLFilt_ID" if ($banner eq 'Y');
 
 showkey $output_width if $pdbg;
 
